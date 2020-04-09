@@ -3,11 +3,11 @@ exports.handler = function(event, context, callback) {
     if (event.headers['client-ip'] == '86.0.19.200') {
         callback(null, {
             statusCode: 200,
-            body: `Your IP address ${event.headers['client-ip']} is allowed`
+            body: `Your IP address ${event.headers['client-ip']} is forbidden` 
             });   
     }
     callback(null, {
     statusCode: 403,
-    body: `Your IP address ${event.headers['client-ip']} is forbidden`
+    body: `Your IP address ${event.headers['client-ip']} is allowed`
     });
   }
