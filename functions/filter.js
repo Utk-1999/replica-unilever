@@ -16,7 +16,7 @@ exports.handler = function(event, context, callback) {
     else {
         redirectURI = event.path
         response = {
-            statusCode: 302,
+            statusCode: 200,
             headers: {
                 Location: redirectURI,
                 'Cache-Control': 'no-cache'
