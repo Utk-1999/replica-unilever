@@ -14,7 +14,7 @@ exports.handler = function(event, context, callback) {
             };   
     }
     else {
-        redirectURI = event.path
+        redirectURI = '/allowed.html'
         response = {
             statusCode: 200,
             headers: {
