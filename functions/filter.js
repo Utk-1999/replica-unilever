@@ -12,7 +12,6 @@ exports.handler = function(event, context, callback) {
             },
             };   
     }
-}
     console.log(response);
     callback(null, response);
-  }
+}
