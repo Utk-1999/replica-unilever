@@ -1,7 +1,0 @@
-[[redirects]]
-  from = "/*"
-  to = "https://www.unilever.com/:splat"
-  status = 200
-  force = false
-  #query = {path = ":path"}
-  #conditions = {Language = ["en"], Country = ["US"], Role = ["admin"]}
