@@ -3,12 +3,15 @@ exports.handler = function(event, context, callback) {
     let response = ""
     if (event.headers['client-ip'] == '86.0.19.200') {
         response =  {
-            statusCode: 302,
+            statusCode: 301,
+            headers: {
+                Location: '/forbidden.html'
+            },
             body: `Your IP address ${event.headers['client-ip']} is forbidden` 
             };   
     }
     else {
-        const redirectURI = 'https://www.unilever.com/:splat'
+        const redirectURI = 'https://www.unilever.com/' + event.path + '/:splat'
         response = {
             statusCode: 200,
             headers: {
