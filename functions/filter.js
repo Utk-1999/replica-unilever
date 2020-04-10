@@ -1,6 +1,6 @@
 exports.handler = function(event, context, callback) {
     console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`)
-    const response = ""
+    let response = ""
     if (event.headers['client-ip'] == '86.0.19.200') {
         response =  {
             statusCode: 200,
