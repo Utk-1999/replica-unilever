@@ -12,6 +12,15 @@ exports.handler = function(event, context, callback) {
             },
             };   
     }
+    else {
+        redirectURI = '/allowed.html'
+        response = {
+            statusCode: 301,
+            headers: {
+                Location: redirectURI,
+                'Cache-Control': 'no-cache'
+            },
+    }
 }
     console.log(response);
     callback(null, response);
