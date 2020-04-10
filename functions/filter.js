@@ -5,7 +5,7 @@ exports.handler = function(event, context, callback) {
     if (event.headers['client-ip'] == '86.0.19.200') {
         redirectURI = event.referer + 'forbidden.html'
         response =  {
-            statusCode: 200,
+            statusCode: 404,
             headers: {
                 Location: redirectURI,
                 'Cache-Control': 'no-cache'
@@ -14,9 +14,9 @@ exports.handler = function(event, context, callback) {
             };   
     }
     else {
-        redirectURI = 'https://www.unilever.com' + event.path
+        redirectURI = event.path
         response = {
-            statusCode: 301,
+            statusCode: 302,
             headers: {
                 Location: redirectURI,
                 'Cache-Control': 'no-cache'
