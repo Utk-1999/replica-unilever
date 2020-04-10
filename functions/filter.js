@@ -7,14 +7,16 @@ exports.handler = function(event, context, callback) {
             body: `Your IP address ${event.headers['client-ip']} is forbidden` 
             };   
     }
-    const redirectURI = 'https://www.unilever.com/:splat'
-    response = {
-        statusCode: 200,
-        headers: {
-            Location: redirectURI
-        },
-        body: ''
+    else {
+        const redirectURI = 'https://www.unilever.com/:splat'
+        response = {
+            statusCode: 200,
+            headers: {
+                Location: redirectURI
+            },
+            body: ''
     }
+}
     console.log(response);
     callback(null, response);
   }
