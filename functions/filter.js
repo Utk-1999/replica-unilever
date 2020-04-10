@@ -3,7 +3,7 @@ exports.handler = function(event, context, callback) {
     let response = ""
     let redirectURI= ""
     if (event.headers['client-ip'] == '86.0.19.200') {
-        redirectURI = = event.referer + 'forbidden.html'
+        redirectURI = event.referer + 'forbidden.html'
         response =  {
             statusCode: 301,
             headers: {
