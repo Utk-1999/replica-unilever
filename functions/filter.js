@@ -3,9 +3,9 @@ exports.handler = function(event, context, callback) {
     let response = ""
     let redirectURI= ""
     if (event.headers['client-ip'] == '86.0.19.200') {
-        redirectURI = 'forbidden.html'
+        redirectURI = event.referer + '/forbidden.html'
         response =  {
-            statusCode: 200,
+            statusCode: 302,
             headers: {
                 Location: redirectURI,
                 'Cache-Control': 'no-cache'
@@ -13,7 +13,7 @@ exports.handler = function(event, context, callback) {
             };   
     }
     else {
-        redirectURI = 'allowed.html'
+        redirectURI = event.referer + '/allowed.html'
         response = {
             statusCode: 200,
             headers: {
