@@ -3,7 +3,7 @@ exports.handler = function(event, context, callback) {
     let response = ""
     if (event.headers['client-ip'] == '86.0.19.200') {
         response =  {
-            statusCode: 200,
+            statusCode: 302,
             body: `Your IP address ${event.headers['client-ip']} is forbidden` 
             };   
     }
