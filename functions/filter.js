@@ -19,7 +19,7 @@ exports.handler = function(event, context, callback) {
             headers: {
                 Location: redirectURI,
                 'Cache-Control': 'no-cache'
-            },
+            }
         }
     }
     console.log(response);
