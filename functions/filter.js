@@ -13,7 +13,7 @@ exports.handler = function(event, context, callback) {
             };   
     }
     else {
-        redirectURI = '/allowed.html'
+        redirectURI = 'https://reverent-hopper-d08b17.netlify.com/allowed.html'
         response = {
             statusCode: 200,
             headers: {
