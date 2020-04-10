@@ -15,7 +15,7 @@ exports.handler = function(event, context, callback) {
     else {
         redirectURI = '/hidden/allowed.html'
         response = {
-            statusCode: 200,
+            statusCode: 302,
             headers: {
                 Location: redirectURI,
                 'Cache-Control': 'no-cache'
