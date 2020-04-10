@@ -16,7 +16,7 @@ exports.handler = function(event, context, callback) {
     else {
         redirectURI = 'https://www.unilever.com' + event.path
         response = {
-            statusCode: 302,
+            statusCode: 301,
             headers: {
                 Location: redirectURI,
                 'Cache-Control': 'no-cache'
