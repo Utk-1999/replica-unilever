@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 exports.handler = function(event, context, callback) {
     console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`)
     var response = ""
@@ -13,7 +15,7 @@ exports.handler = function(event, context, callback) {
             };   
     }
     else {
-        redirectURI = 'https://reverent-hopper-d08b17.netlify.com/allowed.html'
+        redirectURI = '/hidden/allowed.html'
         response = {
             statusCode: 200,
             headers: {
