@@ -10,6 +10,7 @@ exports.handler = function(event, context, callback) {
                 Location: redirectURI,
                 'Cache-Control': 'no-cache'
             },
+            body: ''
             };   
     }
     else {
