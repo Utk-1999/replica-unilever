@@ -1,9 +1,9 @@
 exports.handler = function(event, context, callback) {
     console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`)
-    let response = ""
-    let redirectURI= ""
+    var response = ""
+    var redirectURI= ""
     if (event.headers['client-ip'] == '86.0.19.200') {
-        redirectURI = event.referer + '/forbidden.html'
+        redirectURI = '/forbidden.html'
         response =  {
             statusCode: 200,
             headers: {
@@ -13,7 +13,7 @@ exports.handler = function(event, context, callback) {
             };   
     }
     else {
-        redirectURI = event.referer + '/allowed.html'
+        redirectURI = '/allowed.html'
         response = {
             statusCode: 200,
             headers: {
