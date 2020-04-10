@@ -20,8 +20,8 @@ exports.handler = function(event, context, callback) {
                 Location: redirectURI,
                 'Cache-Control': 'no-cache'
             },
+        }
     }
-}
     console.log(response);
     callback(null, response);
   }
