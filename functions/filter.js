@@ -10,7 +10,6 @@ exports.handler = function(event, context, callback) {
                 Location: redirectURI,
                 'Cache-Control': 'no-cache'
             },
-            body: `Your IP address ${event.headers['client-ip']} is forbidden` 
             };   
     }
     else {
