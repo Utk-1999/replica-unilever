@@ -15,6 +15,6 @@ exports.handler = function(event, context, callback) {
         },
         body: ''
     }
-    console.log (`\response: ${JSON.stringify(response, null, 2)}`);
+    console.log ('response: ' + response);
     callback(null, response);
   }
