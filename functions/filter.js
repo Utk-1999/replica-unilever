@@ -11,7 +11,7 @@ exports.handler = function(event, context, callback) {
             };   
     }
     else {
-        const redirectURI = 'https://www.unilever.com/' + event.path + '/:splat'
+        const redirectURI = 'https://www.unilever.com/' + event.path
         response = {
             statusCode: 200,
             headers: {
