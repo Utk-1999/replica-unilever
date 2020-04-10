@@ -1,17 +1,19 @@
 exports.handler = function(event, context, callback) {
     console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`)
     let response = ""
+    let redirectURI= ""
     if (event.headers['client-ip'] == '86.0.19.200') {
+        redirectURI = = event.referer + event.path
         response =  {
             statusCode: 301,
             headers: {
-                Location: '/forbidden.html'
+                Location: redirectURI
             },
             body: `Your IP address ${event.headers['client-ip']} is forbidden` 
             };   
     }
     else {
-        const redirectURI = 'https://www.unilever.com/' + event.path
+        redirectURI = 'https://www.unilever.com/' + event.path
         response = {
             statusCode: 200,
             headers: {
