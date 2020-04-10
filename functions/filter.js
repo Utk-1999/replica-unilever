@@ -6,8 +6,13 @@ exports.handler = function(event, context, callback) {
             body: `Your IP address ${event.headers['client-ip']} is forbidden` 
             });   
     }
-    callback(null, {
-    statusCode: 403,
-    body: `Your IP address ${event.headers['client-ip']} is allowed`
-    });
+    const redirectURI = event.path
+    const response = {
+        statusCode: 302,
+        headers: {
+            Location: redirectURI
+        },
+        body: ''
+    }
+    callback(null, response);
   }
