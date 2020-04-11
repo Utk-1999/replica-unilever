@@ -35,7 +35,7 @@ exports.handler = function(event, context, callback) {
         return exp;
     }
     
-      const generateJWT = () => {
+      const generateJWT = () => 
       jwt.sign(
         {
           exp: getExpiryDate(),
@@ -50,11 +50,8 @@ exports.handler = function(event, context, callback) {
           },
           user_id: uuid.uuidv4()
         },
-        secret: "secretsAreLiesInDisguise"
-      );
-    }   
-
+        {secret: "secretsAreLiesInDisguise"}
+      )  
     console.log(response);
     callback(null, response);
-
 }
