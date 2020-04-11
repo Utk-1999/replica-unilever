@@ -1,4 +1,4 @@
-const cookie = require("cookie");
+/* const cookie = require("cookie"); */
 const axios = require("axios");
 const jwt = require("jwt");
 const uuid = require("uuid/v4");
