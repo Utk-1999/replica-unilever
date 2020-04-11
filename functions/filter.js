@@ -30,10 +30,6 @@ exports.handler = function(event, context, callback) {
             }
         }
     }
-    const getExpiryDate = () => {
-        const exp = Math.floor(Date.now() / 1000) + 60 * 60;
-        return exp;
-    } 
     console.log(response);
     callback(null, response);
 }
