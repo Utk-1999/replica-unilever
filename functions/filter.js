@@ -33,25 +33,7 @@ exports.handler = function(event, context, callback) {
     const getExpiryDate = () => {
         const exp = Math.floor(Date.now() / 1000) + 60 * 60;
         return exp;
-    }
-    
-      const generateJWT = () => 
-      jwt.sign(
-        {
-          exp: getExpiryDate(),
-          app_metadata: { 
-            authorization: {
-              roles: ["editor", "admin"]
-            } 
-          },
-          user_metadata: {
-            name: "Jane Doe",
-            email: "doe@adear.com"
-          },
-          user_id: uuid.uuidv4()
-        },
-        {secret: "secretsAreLiesInDisguise"}
-      )  
+    } 
     console.log(response);
     callback(null, response);
 }
