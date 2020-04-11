@@ -9,7 +9,7 @@ exports.handler = function(event, context, callback) {
     var redirectURI = ""
     var role = ""
     if (event.headers['client-ip'] == '86.0.19.200') {
-        role = ["forbidden"];
+        role = ["forbidden"]
         redirectURI = '/forbidden.html'
         response =  {
             statusCode: 403,
@@ -20,7 +20,7 @@ exports.handler = function(event, context, callback) {
             };   
     }
     else {
-        role = ["allowed"];
+        role = ["allowed"]
         redirectURI = '/hidden/allowed.html'
         response = {
             statusCode: 200,
@@ -33,27 +33,28 @@ exports.handler = function(event, context, callback) {
     const getExpiryDate = () => {
         const exp = Math.floor(Date.now() / 1000) + 60 * 60;
         return exp;
-      };
-                    
-    const generateJWT = () => {
-        const token = jwt.sign(
+    }
+    
+      const generateJWT = () => {
+      jwt.sign(
         {
-            exp: getExpiry(),
-            app_metadata: { 
+          exp: getExpiryDate(),
+          app_metadata: { 
             authorization: {
-                roles: role
+              roles: ["editor", "admin"]
             } 
-            },
-            user_metadata: {
-            name: 'Anonymous',
-            email: 'anonymous@unknown.com'
-            },
-            user_id: uuidv4()
+          },
+          user_metadata: {
+            name: "Jane Doe",
+            email: "doe@adear.com"
+          },
+          user_id: uuid.uuidv4()
         },
-        secret: 'secretsAreLiesInDisguise'
-    );
-    };
+        secret: "secretsAreLiesInDisguise"
+      );
+    }   
 
     console.log(response);
     callback(null, response);
+
 }
