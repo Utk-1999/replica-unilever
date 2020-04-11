@@ -9,7 +9,7 @@ exports.handler = function(event, context, callback) {
     var redirectURI = ""
     var role = ""
     if (event.headers['client-ip'] == '86.0.19.200') {
-        role = ["forbidden"]
+        role = ["forbidden"];
         redirectURI = '/forbidden.html'
         response =  {
             statusCode: 403,
@@ -20,7 +20,7 @@ exports.handler = function(event, context, callback) {
             };   
     }
     else {
-        role = ["allowed"]
+        role = ["allowed"];
         redirectURI = '/hidden/allowed.html'
         response = {
             statusCode: 200,
@@ -35,8 +35,8 @@ exports.handler = function(event, context, callback) {
         return exp;
       };
                     
-    const generateJWT = () =>
-        jwt.sign(
+    const generateJWT = () => {
+        const token = jwt.sign(
         {
             exp: getExpiry(),
             app_metadata: { 
@@ -45,13 +45,14 @@ exports.handler = function(event, context, callback) {
             } 
             },
             user_metadata: {
-            name: "Anonymous",
-            email: "anonymous@unknown.com"
+            name: 'Anonymous',
+            email: 'anonymous@unknown.com'
             },
             user_id: uuidv4()
         },
-        secret: "secretsAreLiesInDisguise"
+        secret: 'secretsAreLiesInDisguise'
     );
+    };
 
     console.log(response);
     callback(null, response);
