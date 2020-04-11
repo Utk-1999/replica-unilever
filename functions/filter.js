@@ -45,7 +45,7 @@ exports.handler = function(event, context, callback) {
             } 
             },
             user_metadata: {
-            name: "Anonymous"
+            name: "Anonymous",
             email: "anonymous@unknown.com"
             },
             user_id: uuidv4()
