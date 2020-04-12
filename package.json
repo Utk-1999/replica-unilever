@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/ameerbadri/replica-unilever#readme",
   "dependencies": {
-    "cookie": "^0.4.0"
+    "cookie": "^0.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "url-parse": "^1.4.7"
   }
 }
