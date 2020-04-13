@@ -1,7 +1,2 @@
 [build]
     functions="./functions/"  
-
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/filter-ip"
-  status=200
