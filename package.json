@@ -4,8 +4,8 @@
   "description": "Smart replica of Unilever site",
   "main": "filter.js",
   "dependencies": {
-    "fetch-node": "0.0.1",
-    "node-fetch": "^2.6.0"
+    "@types/node-fetch": "^2.5.6",
+    "fetch-node": "0.0.1"
   },
   "devDependencies": {},
   "scripts": {

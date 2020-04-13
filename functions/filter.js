@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import fetch from "@types/node-fetch";
 const API_ENDPOINT = "https://icanhazdadjoke.com/";
 export function handler(event, context, callback) {
   var response = {}
