@@ -1,7 +1,7 @@
-const fetch = require("node-fetch");
+import fetch from "@types/node-fetch";
 const API_ENDPOINT = "https://icanhazdadjoke.com/";
 
-exports.handler = function(event, context, callback) {
+export function handler(event, context, callback) {
   var response = {}
   console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`)
  
@@ -13,4 +13,4 @@ exports.handler = function(event, context, callback) {
     }))
     .catch(error => ({ statusCode: 422, body: String(error) }));
   callback (null, response);  
-};
+}
