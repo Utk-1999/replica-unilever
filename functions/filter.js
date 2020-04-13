@@ -1,13 +1,10 @@
+import fetch from "node-fetch";
+
 export function handler(event, context, callback) {
-    import jwt from "@types/jsonwebtoken";
-    import uuidv4 from "uuid/v4";
-    import cookie from "cookie";
     console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`)
     var response = ""
     var redirectURI = ""
-    var role = []
     if (event.headers['client-ip'] == '86.0.19.200') {
-        role = ["forbidden"]
         redirectURI = '/forbidden.html'
         response =  {
             statusCode: 403,
@@ -18,16 +15,25 @@ export function handler(event, context, callback) {
             };   
     }
     else {
-        role = ["allowed"]
         redirectURI = '/hidden/allowed.html'
         response = {
             statusCode: 200,
             headers: {
                 Location: redirectURI,
                 'Cache-Control': 'no-cache'
-            }
+            },
+        body: ""
         }
     }
+/*
+    return fetch(API_ENDPOINT, { headers: { "Accept": "application/json" } })
+    .then(response => response.json())
+    .then(data => ({
+      statusCode: 200,
+      body: data.joke
+    }))
+    .catch(error => ({ statusCode: 422, body: String(error) }));*/
+
     console.log(response);
     callback(null, response);
 }
