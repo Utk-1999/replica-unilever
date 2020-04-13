@@ -3,6 +3,13 @@ const jwt = require("jsonwebtoken");
 const uuidv4 = require("uuid/v4");
 const cookie = require("cookie");
 
+const getExpiryDate = () => {
+  const exp = Math.floor(Date.now() / 1000) + 60 * 60;
+  // const expReadable = new Date(exp);
+  return exp;
+};
+
+
 exports.handler = async (event, context) => {
     console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`)
     var response = ""
