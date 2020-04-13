@@ -4,6 +4,7 @@
   "description": "Smart replica of Unilever site",
   "main": "index.js",
   "scripts": {
+    "build:functions": "netlify-lambda build functions",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
