@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/ameerbadri/replica-unilever#readme",
   "dependencies": {
+    "@types/jsonwebtoken": "^8.3.9",
     "cookie": "^0.4.0",
     "jsonwebtoken": "^8.5.1",
     "url-parse": "^1.4.7"
