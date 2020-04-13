@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "npm run lambda:dev",
+    "build": "npm run site:build"
+  },
   "dependencies": {
     "@types/node-fetch": "^2.5.6",
     "node-fetch": "^2.6.0"
