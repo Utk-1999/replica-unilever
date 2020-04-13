@@ -3,5 +3,5 @@
 
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/filter-ip/:splat"
+  to = "/.netlify/functions/filter-ip"
   status=200
