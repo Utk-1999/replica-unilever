@@ -1,21 +1,4 @@
 {
-  "name": "replica-unilever",
-  "version": "1.0.0",
-  "description": "Smart replica of Unilever site",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ameerbadri/replica-unilever.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ameerbadri/replica-unilever/issues"
-  },
-  "homepage": "https://github.com/ameerbadri/replica-unilever#readme",
   "dependencies": {
     "node-fetch": "^2.6.0"
   }
