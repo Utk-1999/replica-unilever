@@ -1,4 +1,5 @@
-{ "name": "replica-unilever",
+{
+  "name": "replica-unilever",
   "description": "Smart replica of Unilever site",
   "version": "1.0.0",
   "main": "filter.js",
