@@ -11,6 +11,7 @@ exports.handler = async (event, context) => {
                 Location: redirectURI,
                 'Cache-Control': 'no-cache'
             },
+            body: 'forbidden'
             };   
     }
     else {
@@ -21,7 +22,7 @@ exports.handler = async (event, context) => {
                 Location: redirectURI,
                 'Cache-Control': 'no-cache'
             },
-        body: ""
+        body: 'hello'
         }
     }
 /*
