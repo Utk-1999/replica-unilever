@@ -1,6 +1,6 @@
+const fetch = require("node-fetch");
+const API_ENDPOINT = "https://icanhazdadjoke.com/";
 exports.handler = function(event, context, callback) {
-  const fetch = require("node-fetch");
-  const API_ENDPOINT = "https://icanhazdadjoke.com/";
   var response = {}
   console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`)
  
