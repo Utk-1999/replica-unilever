@@ -1,8 +1,8 @@
-const jwt = require("jsonwebtoken");
-const uuidv4 = require("uuid/v4");
-const cookie = require("cookie");
+import jwt from "@types/jsonwebtoken";
+import uuidv4 from "uuid/v4";
+import cookie from "cookie";
 
-exports.handler = function(event, context, callback) {
+export function handler(event, context, callback) {
     console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`)
     var response = ""
     var redirectURI = ""
