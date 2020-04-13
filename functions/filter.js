@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-exports.handler = (event, context) {
+exports.handler = async (event, context) => {
     console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`)
     var response = ""
     var redirectURI = ""
@@ -36,4 +36,4 @@ exports.handler = (event, context) {
 
     console.log(response);
     return response;
-}
+};
