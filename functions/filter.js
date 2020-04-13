@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-export function handler(event, context, callback) {
+exports.handler = (event, context) {
     console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`)
     var response = ""
     var redirectURI = ""
@@ -35,5 +35,5 @@ export function handler(event, context, callback) {
     .catch(error => ({ statusCode: 422, body: String(error) }));*/
 
     console.log(response);
-    callback(null, response);
+    return response;
 }
