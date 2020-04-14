@@ -1,3 +1,3 @@
-/ /index.html 200 Role=Allowed
-/* /:splat 200! Role=Allowed
+/ /index.html 200! Role=allowed
+/* /:splat 200! Role=allowed
 /* /.netlify/functions/filter-ip 200
