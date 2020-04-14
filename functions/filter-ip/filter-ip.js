@@ -42,7 +42,7 @@ exports.handler = async (event, context) => {
         role = "forbidden"  
     }
     else {
-      redirectURI = 'https://filter-ip.netlify.com/allowed.html'
+      redirectURI = 'https://filter-ip.netlify.com/'
       sCode = "302"
       role = "allowed"  
     }
