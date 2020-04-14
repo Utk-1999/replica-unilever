@@ -4,7 +4,7 @@
   "description": "Smart replica of Unilever site",
   "main": "index.js",
   "scripts": {
-    "build": "npmm build",
+    "build": "npm build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
