@@ -42,7 +42,7 @@ exports.handler = async (event, context) => {
     }
     else {
       redirectURI = '/allowed.html'
-      sCode = "200"
+      sCode = "302"
       role = "allowed"  
     }
 
