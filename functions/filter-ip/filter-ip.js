@@ -9,13 +9,13 @@ const getExpiryDate = () => {
   return exp;
 };
 
-const generateJWT = () => {
+const generateJWT = (role) =>
 jwt.sign(
   {
     exp: getExpiryDate(),
     app_metadata: { 
       authorization: {
-        roles: ["forbidden"]
+        roles: [role]
       } 
     },
     user_metadata: {
@@ -26,7 +26,6 @@ jwt.sign(
   },
   "secretsAreLiesInDisguise"
 );
-};
 
 exports.handler = async (event, context) => {
 
@@ -49,7 +48,7 @@ exports.handler = async (event, context) => {
 
     const oneWeeks = 7 * 24 * 3600000
   
-    const netlifyCookie = cookie.serialize("nf_jwt", generateJWT, {
+    const netlifyCookie = cookie.serialize("nf_jwt", generateJWT(role), {
       secure: true,
       path: "/",
       maxAge: oneWeeks
