@@ -1,7 +1,7 @@
 {
   "name": "replica-unilever",
   "version": "1.0.0",
-  "description": "Smart replica of Unilever site",
+  "description": "Gated site using user IP address",
   "main": "index.js",
   "scripts": {
     "build": "npm build",
