@@ -34,8 +34,9 @@ exports.handler = async (event, context) => {
     var redirectURI = ""
     var sCode = ""
     var role = ""
-
-    if (event.headers['client-ip'] == '86.0.19.200') {
+    const blockedIP = ["86.0.19.200", "::1"]
+    const clientIP = event.headers['client-ip']
+    if (blockedIP.includes(clientIP)) {
         redirectURI = '/forbidden.html'
         sCode = "403"
         role = "forbidden"  
@@ -59,7 +60,8 @@ exports.handler = async (event, context) => {
           Location: redirectURI,
           "Set-Cookie": netlifyCookie,
           'Cache-Control': 'no-cache'
-      }
+      },
+      body: ""
     }
     console.log(response);
     return response;
