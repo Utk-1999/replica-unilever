@@ -1,6 +1,7 @@
 const fetch = require('node-fetch')
 const jwt = require("jsonwebtoken");
-const uuidv4 = require("uuid/v4");
+/* const uuidv4 = require("uuid/v4"); */
+import { v4 as uuidv4 } from 'uuid';
 const cookie = require("cookie");
 
 const getExpiryDate = () => {
