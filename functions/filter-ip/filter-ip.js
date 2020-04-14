@@ -33,22 +33,21 @@ exports.handler = async (event, context) => {
     var response = ""
     var redirectURI = ""
     var sCode = ""
-    var role = []
+    var role = ""
 
     if (event.headers['client-ip'] == '86.0.19.200') {
         redirectURI = '/forbidden.html'
         sCode = "403"
-        role = ["forbidden"]  
+        role = "forbidden"  
     }
     else {
-      redirectURI = '/forbidden.html'
+      redirectURI = '/allowed.html'
       sCode = "200"
-      role= ["allowed"]  
+      role = "allowed"  
     }
 
     const oneWeeks = 7 * 24 * 3600000
-  
-    const netlifyCookie = cookie.serialize("nf_jwt", generateJWT(role), {
+    const netlifyCookie = cookie.serialize("nf_jwt",generateJWT(role) , {
       secure: true,
       path: "/",
       maxAge: oneWeeks
@@ -61,9 +60,8 @@ exports.handler = async (event, context) => {
           "Set-Cookie": netlifyCookie,
           'Cache-Control': 'no-cache'
       },
-      body: 'hello'
+      body: ''
     }
-
     console.log(response);
     return response;
 };
