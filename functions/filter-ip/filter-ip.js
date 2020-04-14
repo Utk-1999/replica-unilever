@@ -9,41 +9,61 @@ const getExpiryDate = () => {
   return exp;
 };
 
+const generateJWT = () => {
+jwt.sign(
+  {
+    exp: getExpiryDate(),
+    app_metadata: { 
+      authorization: {
+        roles: ["forbidden"]
+      } 
+    },
+    user_metadata: {
+      name: "AB",
+      email: "ab@ab.com"
+    },
+    user_id: uuidv4()
+  },
+  "secretsAreLiesInDisguise"
+);
+};
 
 exports.handler = async (event, context) => {
+
     console.log(`{\ncontext: ${JSON.stringify(context,null,2)},\nevent: ${JSON.stringify(event,null,2)}\n}`)
     var response = ""
     var redirectURI = ""
+    var sCode = ""
+    var role = []
+
     if (event.headers['client-ip'] == '86.0.19.200') {
         redirectURI = '/forbidden.html'
-        response =  {
-            statusCode: 403,
-            headers: {
-                Location: redirectURI,
-                'Cache-Control': 'no-cache'
-            },
-            body: 'forbidden'
-            };   
+        sCode = "403"
+        role = ["forbidden"]  
     }
     else {
-        redirectURI = '/hidden/allowed.html'
-        response = {
-            statusCode: 200,
-            headers: {
-                Location: redirectURI,
-                'Cache-Control': 'no-cache'
-            },
-        body: 'hello'
-        }
+      redirectURI = '/forbidden.html'
+      sCode = "200"
+      role= ["allowed"]  
     }
-/*
-    return fetch(API_ENDPOINT, { headers: { "Accept": "application/json" } })
-    .then(response => response.json())
-    .then(data => ({
-      statusCode: 200,
-      body: data.joke
-    }))
-    .catch(error => ({ statusCode: 422, body: String(error) }));*/
+
+    const oneWeeks = 7 * 24 * 3600000
+  
+    const netlifyCookie = cookie.serialize("nf_jwt", generateJWT, {
+      secure: true,
+      path: "/",
+      maxAge: oneWeeks
+    });
+
+    response = {
+      statusCode: sCode,
+      headers: {
+          Location: redirectURI,
+          "Set-Cookie": netlifyCookie,
+          'Cache-Control': 'no-cache'
+      },
+      body: 'hello'
+    }
 
     console.log(response);
     return response;
