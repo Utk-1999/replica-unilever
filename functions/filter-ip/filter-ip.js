@@ -34,7 +34,7 @@ exports.handler = async (event, context) => {
     var redirectURI = ""
     var sCode = ""
     var role = ""
-    const blockedIP = ["86.0.19.200", "::1"]
+    const blockedIP = ["86.0.19.200"]
     const clientIP = event.headers['client-ip']
     if (blockedIP.includes(clientIP)) {
         redirectURI = 'https://filter-ip.netlify.com/forbidden.html'
