@@ -41,12 +41,12 @@ exports.handler = async (event, context) => {
         role = "forbidden"  
     }
     else {
-      redirectURI = 'https://www.cnn.com/'
+      redirectURI = '/allowed.html'
       sCode = "302"
       role = "allowed"  
     }
 
-    const oneWeeks = 7 * 24 * 3600000
+    const oneWeeks = 7 * 24 * 360000
     const netlifyCookie = cookie.serialize("nf_jwt",generateJWT(role) , {
       secure: true,
       path: "/",
