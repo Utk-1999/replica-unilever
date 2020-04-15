@@ -60,8 +60,7 @@ exports.handler = async (event, context) => {
           Location: redirectURI,
           "Set-Cookie": netlifyCookie,
           'Cache-Control': 'no-cache'
-      },
-      body: JSON.stringify({})
+      }
     }
     console.log(response);
     return response;
