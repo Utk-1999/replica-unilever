@@ -1,6 +1,6 @@
 const fetch = require('node-fetch')
 const jwt = require("jsonwebtoken");
-const { v4: uuidv4 } = require('uuid');
+const {v4: uuidv4} = require('uuid');
 const cookie = require("cookie");
 
 const getExpiryDate = () => {
@@ -33,7 +33,7 @@ exports.handler = async (event, context) => {
     var redirectURI = ""
     var sCode = ""
     var role = ""
-    const blockedIP = ["86.0.19.200"]
+    const blockedIP = ["86.0.19.200", "::1"]
     const clientIP = event.headers['client-ip']
     if (blockedIP.includes(clientIP)) {
         redirectURI = '/forbidden.html'
@@ -46,10 +46,9 @@ exports.handler = async (event, context) => {
       role = "allowed"  
     }
 
-    const oneWeeks = 7 * 24 * 360000
+    const oneWeeks = 7 * 24 * 3600000
     const netlifyCookie = cookie.serialize("nf_jwt",generateJWT(role) , {
-      secure: true,
-      path: "/",
+      secure: false,
       maxAge: oneWeeks
     });
 
@@ -60,7 +59,7 @@ exports.handler = async (event, context) => {
           "Set-Cookie": netlifyCookie,
           'Cache-Control': 'no-cache'
       },
-      body: JSON.stringify({})
+      body: ''
     }
     console.log(response);
     return response;
