@@ -1,4 +1,4 @@
-/ /index.html 200! Role=allowed
-/* /:splat 200! Role=allowed
-/* /forbidden.html 403! Role=forbidden
+/ /index.html Role=allowed
+/* /:splat Role=allowed
+/* /forbidden.html 200! Role=forbidden
 /* /.netlify/functions/filter-ip/:splat 200
