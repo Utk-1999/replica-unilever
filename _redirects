@@ -1,2 +1,2 @@
 /* /:splat 200! Role=allowed
-/* site=:site /.netlify/functions/filter-ip?input=:site 302
+/* /.netlify/functions/filter-ip/:splat 200
