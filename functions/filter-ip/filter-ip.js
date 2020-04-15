@@ -33,7 +33,7 @@ exports.handler = async (event, context) => {
     var redirectURI = ""
     var sCode = ""
     var role = ""
-    /*const blockedIP = ["86.0.19.200", "::1"] */
+    /* const blockedIP = ["86.0.19.200", "::1"] */
     const blockedIP = process.env.BLOCKED_IP
     console.log(blockedIP)
     const clientIP = event.headers['client-ip']
