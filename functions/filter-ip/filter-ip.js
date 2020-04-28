@@ -38,7 +38,7 @@ exports.handler = async (event, context) => {
     console.log(blockedIP)
     const clientIP = event.headers['client-ip']
     if (blockedIP.includes(clientIP)) {
-        redirectURI = '/forbidden.html'
+        redirectURI = '/'
         sCode = "403"
         role = "forbidden"  
     }

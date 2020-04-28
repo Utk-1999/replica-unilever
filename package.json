@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/ameerbadri/replica-unilever#readme",
   "dependencies": {
-    "netlify-cli": "^2.46.0"
+    "netlify-cli": "^2.48.0"
   }
 }
